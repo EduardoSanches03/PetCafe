@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PetCafeProject.Data;
 using PetCafeProject.Models;
@@ -7,9 +7,9 @@ namespace PetCafeProject.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    
+
     public class AnimalController : ControllerBase
-    {
+    {           
         private PetCafeDbContext _context;
 
         public AnimalController(PetCafeDbContext context)
@@ -21,8 +21,8 @@ namespace PetCafeProject.Controllers
         [Route("listar")]
         public async Task<ActionResult<IEnumerable<Animal>>> Listar()
         {
-            if(_context is null) return NotFound();
-            if (_context.Animal is null)return NotFound();
+            if (_context is null) return NotFound();
+            if (_context.Animal is null) return NotFound();
             return await _context.Animal.ToListAsync();
         }
 
@@ -34,7 +34,7 @@ namespace PetCafeProject.Controllers
             if (_context.Animal is null) return NotFound();
             await _context.AddAsync(animal);
             await _context.SaveChangesAsync();
-            return Created("",animal);
+            return Created("", animal);
         }
         [HttpDelete]
         [Route("excluir/{id}")]
@@ -44,7 +44,7 @@ namespace PetCafeProject.Controllers
             if (_context is null) return NotFound();
             if (_context.Animal is null) return NotFound();
             var idTemp = await _context.Animal.FindAsync(id);
-            if(idTemp is null) return NotFound();
+            if (idTemp is null) return NotFound();
             _context.Remove(idTemp);
             await _context.SaveChangesAsync();
             return Ok();

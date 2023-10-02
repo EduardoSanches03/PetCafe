@@ -5,7 +5,7 @@
 namespace PetCafeProject.Migrations
 {
     /// <inheritdoc />
-    public partial class AlteradoTalCoisa : Migration
+    public partial class TesteAnimal : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

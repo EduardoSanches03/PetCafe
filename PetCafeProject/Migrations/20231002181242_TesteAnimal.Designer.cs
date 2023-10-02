@@ -11,14 +11,33 @@ using PetCafeProject.Data;
 namespace PetCafeProject.Migrations
 {
     [DbContext(typeof(PetCafeDbContext))]
-    [Migration("20231002010343_AlteradoTalCoisa")]
-    partial class AlteradoTalCoisa
+    [Migration("20231002181242_TesteAnimal")]
+    partial class TesteAnimal
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.11");
+
+            modelBuilder.Entity("PetCafeProject.Models.Animal", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("descricao")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("especie")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("nome")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Animal");
+                });
 
             modelBuilder.Entity("PetCafeProject.Models.Cliente", b =>
                 {
