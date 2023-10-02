@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eduardo\\source\\repos\\PetCafeProject\\PetCafeProject\\PetCafeProject.csproj": {}
+    "C:\\Users\\Rafael\\Documents\\Faculdade\\Dev_SoftVisual\\ProjetoPetCaffe\\PetCafe\\PetCafeProject\\PetCafeProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eduardo\\source\\repos\\PetCafeProject\\PetCafeProject\\PetCafeProject.csproj": {
+    "C:\\Users\\Rafael\\Documents\\Faculdade\\Dev_SoftVisual\\ProjetoPetCaffe\\PetCafe\\PetCafeProject\\PetCafeProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eduardo\\source\\repos\\PetCafeProject\\PetCafeProject\\PetCafeProject.csproj",
+        "projectUniqueName": "C:\\Users\\Rafael\\Documents\\Faculdade\\Dev_SoftVisual\\ProjetoPetCaffe\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
         "projectName": "PetCafeProject",
-        "projectPath": "C:\\Users\\Eduardo\\source\\repos\\PetCafeProject\\PetCafeProject\\PetCafeProject.csproj",
-        "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eduardo\\source\\repos\\PetCafeProject\\PetCafeProject\\obj\\",
+        "projectPath": "C:\\Users\\Rafael\\Documents\\Faculdade\\Dev_SoftVisual\\ProjetoPetCaffe\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
+        "packagesPath": "C:\\Users\\Rafael\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Rafael\\Documents\\Faculdade\\Dev_SoftVisual\\ProjetoPetCaffe\\PetCafe\\PetCafeProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rafael\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

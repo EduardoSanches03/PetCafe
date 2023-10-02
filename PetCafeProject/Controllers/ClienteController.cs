@@ -57,10 +57,10 @@ namespace PetCafeProject.Controllers
             if (_context is null) return NotFound();
             if (_context.Cliente is null) return NotFound();
             if (cliente == null || string.IsNullOrEmpty(cliente.cpf))
-                return BadRequest("Cliente inválido.");
+                return BadRequest("Cliente invï¿½lido.");
             var clienteExistente = await _context.Cliente.FindAsync(cliente.cpf);
 
-            if (clienteExistente == null) return NotFound("Cliente não encontrado.");
+            if (clienteExistente == null) return NotFound("Cliente nï¿½o encontrado.");
 
             clienteExistente.nome = cliente.nome;
             clienteExistente.email = cliente.email;
