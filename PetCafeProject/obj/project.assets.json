@@ -6036,11 +6036,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Eduardo\\Desktop\\Nova pasta\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
+      "projectUniqueName": "C:\\_src\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
       "projectName": "PetCafeProject",
-      "projectPath": "C:\\Users\\Eduardo\\Desktop\\Nova pasta\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
+      "projectPath": "C:\\_src\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
       "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Eduardo\\Desktop\\Nova pasta\\PetCafe\\PetCafeProject\\obj\\",
+      "outputPath": "C:\\_src\\PetCafe\\PetCafeProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
