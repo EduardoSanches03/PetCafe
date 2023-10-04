@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using PetCafeProject.Data;
 using PetCafeProject.Models;
 
@@ -52,20 +53,20 @@ namespace PetCafeProject.Controllers
 
         [HttpPut()]
         [Route("alterar")]
-        public async Task<ActionResult> Alterar(Cliente cliente)
+        public async Task<ActionResult> Alterar(string cpf, string nome, string email, int idade)
         {
             if (_context is null) return NotFound();
             if (_context.Cliente is null) return NotFound();
-            var clienteExistente = await _context.Cliente.FindAsync(cliente.cpf);
 
-            if (clienteExistente == null) return NotFound("Cliente n�o encontrado.");
+            var clienteExistente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == cpf);
+            if (clienteExistente == null) return NotFound();
 
-            clienteExistente.nome = cliente.nome;
-            clienteExistente.email = cliente.email;
-            clienteExistente.idade = cliente.idade;
+            clienteExistente.nome = nome;
+            clienteExistente.email = email;
+            clienteExistente.idade = idade;
             await _context.SaveChangesAsync();
 
-            return Ok("Cliente atualizado com sucesso.");
+            return Ok();
         }
 
 

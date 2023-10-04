@@ -5,9 +5,9 @@ namespace PetCafeProject.Models
     public class Animal
     {
         [Key]
-        public string? id { get; set; }
-        public string? nome { get; set; }
-        public string? especie { get; set; }
-        public string? descricao { get; set; }
+        public int? Id { get; set; }
+        public string? Nome { get; set; }
+        public string? Especie { get; set; }
+        public string? Descricao { get; set; }
     }
 }

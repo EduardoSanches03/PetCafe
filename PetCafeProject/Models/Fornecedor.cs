@@ -2,6 +2,10 @@
 
 namespace PetCafeProject.Models
 {
+
+ //-----------------------------Feito pelo ChatGPT-----------------------------
+ 
+    
     public class Fornecedor
     {
         [Key]

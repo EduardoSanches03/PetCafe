@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetCafeProject.Data;
 
@@ -10,9 +11,11 @@ using PetCafeProject.Data;
 namespace PetCafeProject.Migrations
 {
     [DbContext(typeof(PetCafeDbContext))]
-    partial class PetCafeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231004223857_ProdutoAlterado")]
+    partial class ProdutoAlterado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.11");
@@ -23,8 +26,8 @@ namespace PetCafeProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AnimalId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Animalid")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Clientecpf")
                         .IsRequired()
@@ -36,7 +39,7 @@ namespace PetCafeProject.Migrations
 
                     b.HasKey("Codigo");
 
-                    b.HasIndex("AnimalId");
+                    b.HasIndex("Animalid");
 
                     b.HasIndex("Clientecpf");
 
@@ -45,20 +48,19 @@ namespace PetCafeProject.Migrations
 
             modelBuilder.Entity("PetCafeProject.Models.Animal", b =>
                 {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Descricao")
+                    b.Property<string>("id")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Especie")
+                    b.Property<string>("descricao")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("especie")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.Property<string>("nome")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("id");
 
                     b.ToTable("Animal");
                 });
@@ -98,9 +100,8 @@ namespace PetCafeProject.Migrations
 
             modelBuilder.Entity("PetCafeProject.Models.Produto", b =>
                 {
-                    b.Property<int>("Codigo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Codigo")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Descricao")
                         .HasColumnType("TEXT");
@@ -130,8 +131,8 @@ namespace PetCafeProject.Migrations
                     b.Property<string>("Clientecpf")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ProdutoCodigo")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("ProdutoCodigo")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("INTEGER");
@@ -152,9 +153,7 @@ namespace PetCafeProject.Migrations
                 {
                     b.HasOne("PetCafeProject.Models.Animal", "Animal")
                         .WithMany()
-                        .HasForeignKey("AnimalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Animalid");
 
                     b.HasOne("PetCafeProject.Models.Cliente", "Cliente")
                         .WithMany()
@@ -184,9 +183,7 @@ namespace PetCafeProject.Migrations
 
                     b.HasOne("PetCafeProject.Models.Produto", "Produto")
                         .WithMany()
-                        .HasForeignKey("ProdutoCodigo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProdutoCodigo");
 
                     b.Navigation("Cliente");
 

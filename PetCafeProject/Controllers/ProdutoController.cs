@@ -10,56 +10,83 @@ namespace PetCafeProject.Controllers;
 public class ProdutoController : ControllerBase
 {
 
-    private PetCafeDbContext _dbEstoque;
+    private PetCafeDbContext _context;
 
-    public ProdutoController(PetCafeDbContext dbEstoque)
+    public ProdutoController(PetCafeDbContext context)
     {
-        _dbEstoque = dbEstoque;
+        _context = context;
     }
 
     [HttpGet]
     [Route("listar")]
     public async Task<ActionResult<IEnumerable<Produto>>> Listar()
     {
-        if (_dbEstoque is null) return NotFound();
-        if (_dbEstoque.Produto is null) return NotFound();
-        var produtos = await _dbEstoque.Produto.ToListAsync();
+        if (_context is null) return NotFound();
+        if (_context.Produto is null) return NotFound();
+
+        var produtos = await _context.Produto
+            .Include(f => f.Fornecedor)
+            .ToListAsync();
 
         return produtos;
     }
 
     [HttpPost]
     [Route("Cadastrar")]
-    public IActionResult Cadastrar(Produto produto)
+    public async Task<ActionResult> Cadastrar(string cnpj, string nome, string descricao, double valor)
     {
-        _dbEstoque.Add(produto);
-        _dbEstoque.SaveChanges();
+        if (_context is null) return NotFound();
+        var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.CNPJ == cnpj);
+        if(fornecedor == null) return NotFound();
 
+        var produto = new Produto
+        {
+            Fornecedor = fornecedor,
+            Nome = nome,
+            Descricao = descricao,
+            Valor = valor
+        };
+
+        await _context.AddAsync(produto);
+        await _context.SaveChangesAsync();
         return Created("", produto);
     }
 
     [HttpDelete]
     [Route("excluir/{codigo}")]
-    public async Task<ActionResult> Excluir(string codigo)
+    public async Task<ActionResult> Excluir(int codigo)
     {
-        if (_dbEstoque is null) return NotFound();
-        if (_dbEstoque.Produto is null) return NotFound();
-        var codTemp = await _dbEstoque.Produto.FindAsync(codigo);
+        if (_context is null) return NotFound();
+        if (_context.Produto is null) return NotFound();
+
+        var codTemp = await _context.Produto.FindAsync(codigo);
         if (codTemp is null) return NotFound();
-        _dbEstoque.Remove(codTemp);
-        await _dbEstoque.SaveChangesAsync();
+
+        _context.Remove(codTemp);
+        await _context.SaveChangesAsync();
         return Ok();
     }
 
     [HttpPut]
     [Route("alterar")]
-    public async Task<IActionResult> Alterar(Produto produto)
+    public async Task<ActionResult> Alterar(int codigo, string cnpj, string nome, string descricao, double valor)
     {
-        if (_dbEstoque is null) return NotFound();
-        if (_dbEstoque.Produto is null) return NotFound();
+        if (_context is null) return NotFound();
+        if (_context.Produto is null) return NotFound();
 
-        _dbEstoque.Produto.Update(produto);
-        await _dbEstoque.SaveChangesAsync();
+        var produtoCadastrado = await _context.Produto.FirstOrDefaultAsync(p => p.Codigo == codigo);
+        if(produtoCadastrado is null) return NotFound();
+
+        var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.CNPJ == cnpj);
+        if (fornecedor is null) return NotFound();
+
+        produtoCadastrado.Fornecedor = fornecedor;
+        produtoCadastrado.Nome = nome;
+        produtoCadastrado.Descricao = descricao;
+        produtoCadastrado.Valor = valor;
+
+        _context.Produto.Update(produtoCadastrado);
+        await _context.SaveChangesAsync();
 
         return Ok();
     }

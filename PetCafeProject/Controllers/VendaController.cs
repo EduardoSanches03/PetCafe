@@ -27,6 +27,7 @@ namespace PetCafeProject.Controllers
             var vendas = await _context.Venda
                 .Include(v => v.Cliente)
                 .Include(v => v.Produto)
+                .Include(v => v.Produto.Fornecedor)
                 .ToListAsync();
 
             return vendas;
@@ -35,22 +36,22 @@ namespace PetCafeProject.Controllers
 
         [HttpPost]
         [Route("realizarVenda")]
-        public async Task<ActionResult> RealizarVenda(string cpf, string produtoId, int quantidade)
+        public async Task<ActionResult> RealizarVenda(string cpf, int produtoId, int quantidade)
         {
             if (_context is null) return NotFound();
 
             var cliente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == cpf);
-            if (cliente == null) return NotFound("Cliente não encontrado.");
+            if (cliente == null) return NotFound();
 
-            var produto = await _context.Produto.FirstOrDefaultAsync(p => p.codigo == produtoId);
-            if (produto == null) return NotFound("Produto não encontrado.");
+            var produto = await _context.Produto.FirstOrDefaultAsync(p => p.Codigo == produtoId);
+            if (produto == null) return NotFound();
 
             var venda = new Venda
             {
                 Cliente = cliente,
                 Produto = produto,
                 Quantidade = quantidade,
-                ValorVenda = (double)(quantidade * produto.valor)
+                ValorVenda = (double)(quantidade * produto.Valor)
             };
 
             await _context.AddAsync(venda);
@@ -75,7 +76,7 @@ namespace PetCafeProject.Controllers
 
         [HttpPut]
         [Route("alterarVenda/{id}")]
-        public async Task<ActionResult> AlterarVenda(int id, string cpf, string produtoId, int quantidade)
+        public async Task<ActionResult> AlterarVenda(int id, string cpf, int produtoId, int quantidade)
         {
             if (_context is null) return NotFound();
 
@@ -85,13 +86,13 @@ namespace PetCafeProject.Controllers
             var cliente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == cpf);
             if (cliente == null) return NotFound("Cliente não encontrado.");
 
-            var produto = await _context.Produto.FirstOrDefaultAsync(p => p.codigo == produtoId);
+            var produto = await _context.Produto.FirstOrDefaultAsync(p => p.Codigo == produtoId);
             if (produto == null) return NotFound("Produto não encontrado.");
 
             vendaExistente.Cliente = cliente;
             vendaExistente.Produto = produto;
             vendaExistente.Quantidade = quantidade;
-            vendaExistente.ValorVenda = (double)(quantidade * produto.valor);
+            vendaExistente.ValorVenda = (double)(quantidade * produto.Valor);
 
             await _context.SaveChangesAsync();
             return Ok(vendaExistente);

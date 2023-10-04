@@ -5,14 +5,20 @@ namespace PetCafeProject.Models
     public class Produto
     {
         [Key]
-        public string? codigo { get; set; }
+        public int Codigo { get; set; }
+        public Fornecedor Fornecedor{ get; set; }
+        public string? Nome { get; set; }
+        public string? Descricao { get; set; }
+        public double? Valor { get; set; }
 
-        public string? nome { get; set; }
+        public Produto() { }
 
-        public string? descricao { get; set; }
-
-        public double? valor { get; set; }
-
+        public Produto(Fornecedor fornecedor, string? nome, string? descricao, double? valor)
+        {
+            Fornecedor = fornecedor;
+            Nome = nome;
+            Descricao = descricao;
+            Valor = valor;
+        }
     }
-    
 }
