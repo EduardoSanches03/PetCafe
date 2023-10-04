@@ -56,8 +56,6 @@ namespace PetCafeProject.Controllers
         {
             if (_context is null) return NotFound();
             if (_context.Cliente is null) return NotFound();
-            if (cliente == null || string.IsNullOrEmpty(cliente.cpf))
-                return BadRequest("Cliente inv�lido.");
             var clienteExistente = await _context.Cliente.FindAsync(cliente.cpf);
 
             if (clienteExistente == null) return NotFound("Cliente n�o encontrado.");
