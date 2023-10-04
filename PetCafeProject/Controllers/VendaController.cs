@@ -79,7 +79,6 @@ namespace PetCafeProject.Controllers
         {
             if (_context is null) return NotFound();
 
-            // Verifica se a venda com o ID especificado existe
             var vendaExistente = await _context.Venda.FirstOrDefaultAsync(v => v.Id == id);
             if (vendaExistente == null) return NotFound("Venda não encontrada.");
 
@@ -89,19 +88,13 @@ namespace PetCafeProject.Controllers
             var produto = await _context.Produto.FirstOrDefaultAsync(p => p.codigo == produtoId);
             if (produto == null) return NotFound("Produto não encontrado.");
 
-            // Atualiza os dados da venda
             vendaExistente.Cliente = cliente;
             vendaExistente.Produto = produto;
             vendaExistente.Quantidade = quantidade;
             vendaExistente.ValorVenda = (double)(quantidade * produto.valor);
 
-            // Salva as alterações no banco de dados
             await _context.SaveChangesAsync();
-
-            return Ok(vendaExistente); // Retorna a venda atualizada
+            return Ok(vendaExistente);
         }
-
-
-
     }
 }

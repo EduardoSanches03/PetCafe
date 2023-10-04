@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IIPLv2h4AbSSG3i3455vF8IWYbMFAA7AG0KvyDrpLqloVyLCS0XAFDqnaPTU4e6OGLYlbw3a0D0QdqdtACM4uw==",
+  "dgSpecHash": "LuLplSKe6lR2BQ7jvCQXlvpNdiB6mUyDzY2d6MANX1uEmxs4++LRldmdC9YyB77hy3bfJ4Tazr23zzyICw0Y1g==",
   "success": true,
   "projectFilePath": "C:\\_src\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,7 @@
     "C:\\Users\\Eduardo\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\system.collections.specialized\\4.3.0\\system.collections.specialized.4.3.0.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
+    "C:\\Users\\Eduardo\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\system.componentmodel.primitives\\4.3.0\\system.componentmodel.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\system.componentmodel.typeconverter\\4.3.0\\system.componentmodel.typeconverter.4.3.0.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",

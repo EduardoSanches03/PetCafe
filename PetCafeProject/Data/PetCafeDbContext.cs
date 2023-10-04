@@ -10,6 +10,7 @@ namespace PetCafeProject.Data
         public DbSet<Produto>? Produto { get; set; }
         public DbSet<Animal>? Animal { get; set; }
         public DbSet<Venda> Venda { get; set; }
+        public DbSet<Adocao> Adocao { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("DataSource=petCafe.db;Cache=Shared");
