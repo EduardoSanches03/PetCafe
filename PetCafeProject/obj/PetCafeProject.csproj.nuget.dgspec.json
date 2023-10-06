@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eduardo\\Desktop\\Nova pasta (2)\\PetCafeProject\\PetCafeProject.csproj": {}
+    "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\PetCafeProject\\PetCafeProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eduardo\\Desktop\\Nova pasta (2)\\PetCafeProject\\PetCafeProject.csproj": {
+    "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\PetCafeProject\\PetCafeProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eduardo\\Desktop\\Nova pasta (2)\\PetCafeProject\\PetCafeProject.csproj",
+        "projectUniqueName": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
         "projectName": "PetCafeProject",
-        "projectPath": "C:\\Users\\Eduardo\\Desktop\\Nova pasta (2)\\PetCafeProject\\PetCafeProject.csproj",
+        "projectPath": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
         "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eduardo\\Desktop\\Nova pasta (2)\\PetCafeProject\\obj\\",
+        "outputPath": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\PetCafeProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
