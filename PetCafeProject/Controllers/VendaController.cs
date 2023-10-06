@@ -51,21 +51,12 @@ namespace PetCafeProject.Controllers
                 Cliente = cliente,
                 Produto = produto,
                 Quantidade = quantidade,
-                ValorVenda = Math.Round((double)(quantidade * produto.Valor), 2)
-            };
-
-            var resultadoVenda = new
-            {
-                NomeCliente = cliente.nome,
-                ValorCompra = Math.Round(venda.ValorVenda, 2),
-                NomeProduto = produto.Nome
+                ValorVenda = (double)(quantidade * produto.Valor)
             };
 
             await _context.AddAsync(venda);
             await _context.SaveChangesAsync();
-
-            return Ok(resultadoVenda);
-              
+            return Created("", venda);
         }
 
         [HttpDelete]
