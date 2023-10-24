@@ -502,3 +502,9 @@ C:\Users\Eduardo\Desktop\Nova pasta (2)\PetCafeProject\obj\Debug\net7.0\refint\P
 C:\Users\Eduardo\Desktop\Nova pasta (2)\PetCafeProject\obj\Debug\net7.0\PetCafeProject.pdb
 C:\Users\Eduardo\Desktop\Nova pasta (2)\PetCafeProject\obj\Debug\net7.0\PetCafeProject.genruntimeconfig.cache
 C:\Users\Eduardo\Desktop\Nova pasta (2)\PetCafeProject\obj\Debug\net7.0\ref\PetCafeProject.dll
+C:\_src\PetCafe\PetCafeProject\bin\Debug\net7.0\PetCafe\angular.json
+C:\_src\PetCafe\PetCafeProject\bin\Debug\net7.0\PetCafe\package-lock.json
+C:\_src\PetCafe\PetCafeProject\bin\Debug\net7.0\PetCafe\package.json
+C:\_src\PetCafe\PetCafeProject\bin\Debug\net7.0\PetCafe\tsconfig.app.json
+C:\_src\PetCafe\PetCafeProject\bin\Debug\net7.0\PetCafe\tsconfig.json
+C:\_src\PetCafe\PetCafeProject\bin\Debug\net7.0\PetCafe\tsconfig.spec.json
