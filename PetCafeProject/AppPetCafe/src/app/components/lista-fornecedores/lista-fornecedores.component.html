@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lista-fornecedores.component.css">
+</head>
+<body class="container">
+    
+  <h1><strong>Lista de Fornecedores</strong></h1>
+  
+<nav><button onclick="history.back()">Voltar</button></nav>
+
+<div class="div_content">
+
+    <div class="tab-content">
+      <table>
+        <tr>
+        <th class="th">Cnpj</th>
+        <th class="th1">Nome</th>
+        </tr>
+            <tr class="tr-cit" *ngFor="let fornecedor of fornecedores">
+                <td>{{ fornecedor.cnpj }}</td> 
+                <td>{{ fornecedor.nome }}</td> 
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

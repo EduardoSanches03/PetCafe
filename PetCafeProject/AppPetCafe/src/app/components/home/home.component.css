@@ -1,0 +1,26 @@
+.container{
+    
+    background-color: blanchedalmond;
+    
+}
+
+h1{
+    text-align: center;
+    color: burlywood;
+    
+}
+
+.container_1{
+    align-items: flex-start;
+    
+}
+
+
+li{
+    
+    margin: 3px;
+}
+.cont_1{
+    display: flex;
+    justify-content: space-evenly;
+}

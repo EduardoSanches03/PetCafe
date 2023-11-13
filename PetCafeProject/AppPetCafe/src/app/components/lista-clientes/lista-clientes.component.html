@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lista-clientes.component.css">
+</head>
+<body class="container">
+    <nav><button onclick="history.back()">Voltar</button></nav>
+  <h1><strong>Lista de Clientes</strong></h1>
+
+<div class="scrol">
+<div class="tab-content">
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>email</th>
+      <th>idade</th>
+    </tr>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{ cliente.nome }}</td> 
+      <td>{{ cliente.email }}</td> 
+      <td>{{ cliente.idade }}</td>
+    </tr>
+  </table>
+</div>
+</div>
+</body>
+</html>

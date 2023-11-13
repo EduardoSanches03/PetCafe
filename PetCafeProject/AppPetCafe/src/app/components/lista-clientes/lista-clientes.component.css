@@ -1,0 +1,44 @@
+.container{
+    
+    background-color: blanchedalmond;
+    text-align: center;    
+}
+h1{
+    margin: 25px;
+    color: burlywood;
+}
+.tab-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.scrol{
+    overflow: auto;
+    height: 400px;
+}
+
+table{
+    
+    
+    border: 2px solid black;
+    padding: 10px;
+}
+th{
+    background-color: burlywood;
+    color: blue;
+    border: 2px solid black;
+    padding: 10px;
+}
+tr{
+    border: 2px solid;
+    padding: 10px;
+}
+td{
+    background-color: antiquewhite;
+    border: 2px solid;
+    padding: 10px;
+}
+nav{
+    position: absolute;
+}
