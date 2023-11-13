@@ -13,7 +13,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-app.UseCors(opcoes => opcoes.AllowAnyOrigin().AllowAnyHeader());
+    app.UseCors(opcoes => opcoes
+    .WithOrigins("http://localhost:4200")
+    .AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+
+app.UseCors(opcoes => opcoes
+    .AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+);
+
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

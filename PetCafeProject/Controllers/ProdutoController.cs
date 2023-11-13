@@ -30,27 +30,37 @@ public class ProdutoController : ControllerBase
 
         return produtos;
     }
+ [HttpPost]
+[Route("Cadastrar")]
+public async Task<ActionResult> Cadastrar(string cnpj, string nome, string descricao, double valor)
+{
+    if (_context is null)
+        return NotFound();
 
-    [HttpPost]
-    [Route("Cadastrar")]
-    public async Task<ActionResult> Cadastrar(string cnpj, string nome, string descricao, double valor)
+    // Verificar se o fornecedor já existe no banco de dados
+    var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.CNPJ == cnpj);
+
+    if (fornecedor == null)
     {
-        if (_context is null) return NotFound();
-        var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.CNPJ == cnpj);
-        if(fornecedor == null) return NotFound();
-
-        var produto = new Produto
-        {
-            Fornecedor = fornecedor,
-            Nome = nome,
-            Descricao = descricao,
-            Valor = valor
-        };
-
-        await _context.AddAsync(produto);
-        await _context.SaveChangesAsync();
-        return Created("", produto);
+        return NotFound("Fornecedor não encontrado.");
     }
+
+    // Criar produto e associar ao fornecedor existente
+    var produto = new Produto
+    {
+        Fornecedor = fornecedor,
+        Nome = nome,
+        Descricao = descricao,
+        Valor = valor
+    };
+
+    // Adicionar e salvar no banco de dados
+    await _context.AddAsync(produto);
+    await _context.SaveChangesAsync();
+
+    return Created("", produto);
+}
+
 
     [HttpDelete]
     [Route("excluir/{codigo}")]

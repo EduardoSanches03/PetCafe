@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+
+
+using System.ComponentModel.DataAnnotations;
 
 namespace PetCafeProject.Models
 {
@@ -13,3 +15,5 @@ namespace PetCafeProject.Models
         public string Nome { get; set; }
     }
 }
+
+

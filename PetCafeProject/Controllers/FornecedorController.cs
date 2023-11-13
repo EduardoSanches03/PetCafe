@@ -27,7 +27,7 @@ namespace PetCafeProject.Controllers
 
         [HttpPost]
         [Route("cadastrar")]
-        public async Task<ActionResult> Cadastrar(Fornecedor fornecedor)
+        public async Task<ActionResult> Cadastrar([FromBody]Fornecedor fornecedor)
         {
             if (_context is null) return NotFound();
             if (_context.Cliente is null) return NotFound();
@@ -35,6 +35,7 @@ namespace PetCafeProject.Controllers
             await _context.SaveChangesAsync();
             return Created("", fornecedor);
         }
+
         [HttpDelete]
         [Route("excluir/{cnpj}")]
 
