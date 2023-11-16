@@ -30,15 +30,16 @@ public class ProdutoController : ControllerBase
 
         return produtos;
     }
- [HttpPost]
+
+[HttpPost]
 [Route("Cadastrar")]
-public async Task<ActionResult> Cadastrar(string cnpj, string nome, string descricao, double valor)
+public async Task<ActionResult> Cadastrar(Produto produto)
 {
     if (_context is null)
         return NotFound();
 
     // Verificar se o fornecedor já existe no banco de dados
-    var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.CNPJ == cnpj);
+    var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.CNPJ == produto.FornecedorCNPJ);
 
     if (fornecedor == null)
     {
@@ -46,36 +47,21 @@ public async Task<ActionResult> Cadastrar(string cnpj, string nome, string descr
     }
 
     // Criar produto e associar ao fornecedor existente
-    var produto = new Produto
+    var novoProduto = new Produto
     {
-        Fornecedor = fornecedor,
-        Nome = nome,
-        Descricao = descricao,
-        Valor = valor
+        FornecedorCNPJ = produto.FornecedorCNPJ,
+        Nome = produto.Nome,
+        Descricao = produto.Descricao,
+        Valor = produto.Valor
     };
 
     // Adicionar e salvar no banco de dados
-    await _context.AddAsync(produto);
-    await _context.SaveChangesAsync();
+    await _context.AddAsync(novoProduto);
+    await _context.SaveChangesAsync(); 
 
-    return Created("", produto);
+    return Created("", novoProduto);
 }
 
-
-    [HttpDelete]
-    [Route("excluir/{codigo}")]
-    public async Task<ActionResult> Excluir(int codigo)
-    {
-        if (_context is null) return NotFound();
-        if (_context.Produto is null) return NotFound();
-
-        var codTemp = await _context.Produto.FindAsync(codigo);
-        if (codTemp is null) return NotFound();
-
-        _context.Remove(codTemp);
-        await _context.SaveChangesAsync();
-        return Ok();
-    }
 
     [HttpPut]
     [Route("alterar")]

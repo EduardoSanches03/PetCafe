@@ -98,7 +98,7 @@ namespace PetCafeProject.Migrations
 
             modelBuilder.Entity("PetCafeProject.Models.Produto", b =>
                 {
-                    b.Property<int>("Codigo")
+                    b.Property<int?>("Codigo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 

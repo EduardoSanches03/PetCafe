@@ -8,6 +8,7 @@ namespace PetCafeProject.Models
         public int Id { get; set; } 
 
         public Cliente Cliente { get; set; }
+        public int ProdutoCodigo {get; set;}
         public Produto Produto { get; set; }
         public int Quantidade { get; set; }
         public double ValorVenda { get; set; }
