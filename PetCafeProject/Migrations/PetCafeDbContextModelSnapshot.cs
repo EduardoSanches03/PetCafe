@@ -84,14 +84,13 @@ namespace PetCafeProject.Migrations
 
             modelBuilder.Entity("PetCafeProject.Models.Fornecedor", b =>
                 {
-                    b.Property<string>("CNPJ")
+                    b.Property<string>("cnpj")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
+                    b.Property<string>("nome")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("CNPJ");
+                    b.HasKey("cnpj");
 
                     b.ToTable("Fornecedor");
                 });

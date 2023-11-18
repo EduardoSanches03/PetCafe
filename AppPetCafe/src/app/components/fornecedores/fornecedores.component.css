@@ -1,9 +1,32 @@
 .container {
-  background-color: blanchedalmond;
-  margin: 50px;
+  color: white;
+  background-color: #263545;
   text-align: center;
+  margin-top: 75px;
 }
-h6 {
+h1 {
+  font-weight: bold;
   font-size: 30px;
-  color: burlywood;
+}
+label {
+  font-weight: bold;
+}
+#btn-salvar {
+  font-weight: bold;
+  background-color: dodgerblue;
+  color: white;
+  margin-right: 10px;
+}
+#btn-voltar {
+  font-weight: bold;
+  background-color: gray;
+  color: white;
+}
+.div-buttons {
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 5px;
+}
+#btn-voltar:hover{
+  background-color: #ffbf00;
 }

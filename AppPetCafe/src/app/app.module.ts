@@ -16,6 +16,9 @@ import { ProdutosService } from './Servico/ProdutoServico/produtos.service';
 import { FornecedoresService } from './Servico/FornecedorServico/fornecedores.service';
 import { FornecedorComponent } from './components/fornecedores/fornecedores.component';
 import { ListaFornecedoresComponent } from './components/lista-fornecedores/lista-fornecedores.component';
+import { ListaProdutosComponent } from './components/lista-produtos/lista-produtos.component';
+import { EditfornmodalComponent } from './components/editfornmodal/editfornmodal.component';
+import { EditclienmodalComponent } from './components/editclienmodal/editclienmodal.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,12 @@ import { ListaFornecedoresComponent } from './components/lista-fornecedores/list
     FornecedorComponent,
     AppComponent,
     ListaFornecedoresComponent,
+    ListaProdutosComponent,
+    EditfornmodalComponent,
+    EditclienmodalComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     CommonModule,

@@ -52,19 +52,20 @@ namespace PetCafeProject.Controllers
 
         [HttpPut()]
         [Route("alterar")]
-        public async Task<ActionResult> Alterar(Fornecedor fornecedor)
+        public async Task<ActionResult> Alterar([FromBody]Fornecedor fornecedor)
         {
             if (_context is null) return NotFound();
             if (_context.Fornecedor is null) return NotFound();
-            var fornecedorExistente = await _context.Fornecedor.FindAsync(fornecedor.CNPJ);
 
+            var fornecedorExistente = await _context.Fornecedor.FirstOrDefaultAsync(f => f.cnpj == fornecedor.cnpj);
             if (fornecedorExistente == null) return NotFound();
 
-            fornecedorExistente.Nome = fornecedor.Nome;
+            fornecedorExistente.nome = fornecedor.nome;
             await _context.SaveChangesAsync();
 
             return Ok();
         }
+
 
     }
 }

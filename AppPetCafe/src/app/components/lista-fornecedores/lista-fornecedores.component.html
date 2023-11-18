@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="lista-fornecedores.component.css">
-</head>
-<body class="container">
-    
-  <h1><strong>Lista de Fornecedores</strong></h1>
-  
-<nav><button onclick="history.back()">Voltar</button></nav>
+    <link rel="stylesheet" href="lista-fornecedores.component.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="container">
+    <h1><strong>Lista de Fornecedores</strong></h1>
 
-<div class="div_content">
+    <nav><button id="btn-voltar" onclick="history.back()">Voltar</button></nav>
 
-    <div class="tab-content">
-      <table>
-        <tr>
-        <th class="th">Cnpj</th>
-        <th class="th1">Nome</th>
-        </tr>
-            <tr class="tr-cit" *ngFor="let fornecedor of fornecedores">
-                <td>{{ fornecedor.cnpj }}</td> 
-                <td>{{ fornecedor.nome }}</td> 
-            </tr>
+    <div class="div_content">
+      <div class="tab-content">
+        <table>
+          <tr>
+            <th class="th">Cnpj</th>
+            <th class="th1">Nome</th>
+            <th class="th2">Alterar</th>
+            <th class="th3">Remover</th>
+          </tr>
+          <tr class="tr-cit" *ngFor="let fornecedor of fornecedores">
+            <td>{{ fornecedor.cnpj }}</td>
+            <td>{{ fornecedor.nome }}</td>
+            <td>
+              <i
+                id="btn-update"
+                class="fa-regular fa-pen-to-square fa-2xl"
+                (click)="abrirModalEditar(fornecedor)"
+              ></i>
+            </td>
+            <td>
+              <i
+                id="btn-remove"
+                class="fa-solid fa-trash-can fa-2xl"
+                (click)="removerCliente(fornecedor.cnpj)"
+              ></i>
+            </td>
+          </tr>
         </table>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>

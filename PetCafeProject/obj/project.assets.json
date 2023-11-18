@@ -6139,11 +6139,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\_src\\PetCafe-main\\PetCafeProject\\PetCafeProject.csproj",
+      "projectUniqueName": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
       "projectName": "PetCafeProject",
-      "projectPath": "C:\\_src\\PetCafe-main\\PetCafeProject\\PetCafeProject.csproj",
+      "projectPath": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\PetCafeProject\\PetCafeProject.csproj",
       "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-      "outputPath": "C:\\_src\\PetCafe-main\\PetCafeProject\\obj\\",
+      "outputPath": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\PetCafeProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",

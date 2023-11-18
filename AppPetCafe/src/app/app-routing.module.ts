@@ -6,6 +6,8 @@ import { ListaClientesComponent } from './components/lista-clientes/lista-client
 import { ProdutosComponent } from './components/produtos/produtos.component';
 import { FornecedorComponent } from './components/fornecedores/fornecedores.component';
 import { ListaFornecedoresComponent } from './components/lista-fornecedores/lista-fornecedores.component';
+import { ListaProdutosComponent } from './components/lista-produtos/lista-produtos.component';
+import { EditfornmodalComponent } from './components/editfornmodal/editfornmodal.component';
 
 const routes: Routes = [
 {path: 'clientes', component: ClientesComponent},
@@ -13,7 +15,10 @@ const routes: Routes = [
 {path: 'lista', component:ListaClientesComponent},
 {path: "produto", component: ProdutosComponent},
 {path: "fornecedor", component: FornecedorComponent},
-{path: "listaforn", component: ListaFornecedoresComponent
+{path: "editforn", component: EditfornmodalComponent},
+{path: "listaforn", component: ListaFornecedoresComponent},
+{path: "listaprodu", component: ListaProdutosComponent
+
 
 }];
 

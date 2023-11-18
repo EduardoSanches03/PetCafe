@@ -11,8 +11,8 @@ namespace PetCafeProject.Models
     public class Fornecedor
     {
         [Key]
-        public string CNPJ { get; set; }
-        public string Nome { get; set; }
+        public string? cnpj { get; set; }
+        public string? nome { get; set; }
     }
 }
 

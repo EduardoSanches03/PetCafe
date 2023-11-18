@@ -39,7 +39,7 @@ public async Task<ActionResult> Cadastrar(Produto produto)
         return NotFound();
 
     // Verificar se o fornecedor já existe no banco de dados
-    var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.CNPJ == produto.FornecedorCNPJ);
+    var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.cnpj == produto.FornecedorCNPJ);
 
     if (fornecedor == null)
     {
@@ -62,6 +62,21 @@ public async Task<ActionResult> Cadastrar(Produto produto)
     return Created("", novoProduto);
 }
 
+[HttpDelete]
+    [Route("excluir/{codigo}")]
+    public async Task<ActionResult> Excluir(int codigo)
+    {
+        if (_context is null) return NotFound();
+        if (_context.Produto is null) return NotFound();
+
+        var codTemp = await _context.Produto.FindAsync(codigo);
+        if (codTemp is null) return NotFound();
+
+        _context.Remove(codTemp);
+        await _context.SaveChangesAsync();
+        return Ok();
+    }
+
 
     [HttpPut]
     [Route("alterar")]
@@ -73,7 +88,7 @@ public async Task<ActionResult> Cadastrar(Produto produto)
         var produtoCadastrado = await _context.Produto.FirstOrDefaultAsync(p => p.Codigo == codigo);
         if(produtoCadastrado is null) return NotFound();
 
-        var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.CNPJ == cnpj);
+        var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.cnpj == cnpj);
         if (fornecedor is null) return NotFound();
 
         produtoCadastrado.Fornecedor = fornecedor;

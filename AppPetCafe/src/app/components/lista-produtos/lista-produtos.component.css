@@ -1,0 +1,46 @@
+.container{
+    
+    background-color: blanchedalmond;
+    text-align: center;    
+}
+h1{
+    margin: 25px;
+    color: burlywood;
+}
+.tab-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.div_content{
+    overflow: auto;
+    max-height: 400px;
+}
+
+table{
+    background-color: burlywood;
+    max-width: 200px;
+    max-height: 200px;
+    overflow: auto;
+    border: 2px solid black;
+    padding: 10px;
+}
+th{
+    background-color: bisque;
+    color: blue;
+    border: 2px solid black;
+    padding: 10px;
+}
+tr{
+    border: 2px solid;
+    padding: 10px;
+}
+td{
+    border: 2px solid;
+    padding: 10px;
+}
+nav{
+    position: absolute;
+}

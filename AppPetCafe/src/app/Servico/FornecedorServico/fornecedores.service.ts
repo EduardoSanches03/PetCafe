@@ -24,12 +24,12 @@ export class FornecedoresService {
     const url = `${this.apiUrl}/cadastrar`;
     return this.http.post(url, fornecedor, httpOptions);
   }
-  alterar(fonecedor: Fornecedor): Observable<any> {
+  alterar(fornecedor: Fornecedor): Observable<any> {
     const url = `${this.apiUrl}/alterar`;
-    return this.http.put<Fornecedor>(url, fonecedor, httpOptions);
+    return this.http.put<Fornecedor>(url, fornecedor, httpOptions);
   }
   excluir(cnpj: string): Observable<any> {
-    const url = `${this.apiUrl}/buscar/${cnpj}`;
+    const url = `${this.apiUrl}/excluir/${cnpj}`;
     return this.http.delete<string>(url, httpOptions);
   }
 }

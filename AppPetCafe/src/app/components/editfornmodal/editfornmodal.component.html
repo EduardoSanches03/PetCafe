@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Fornecedor</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="container">
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Fornecedor</h4>
+      <button type="button" class="close" (click)="fecharModalFornecedor()">
+        &times;
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="cnpj">CNPJ:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cnpj"
+          [(ngModel)]="fornecedor.cnpj"
+          [attr.readonly]="true"
+        />
+      </div>
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          [(ngModel)]="fornecedor.nome"
+        />
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="salvarEdicaoFornecedor()"
+      >
+        Salvar
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="fecharModalFornecedor()"
+      >
+        Fechar
+      </button>
+    </div>
+  </body>
+</html>

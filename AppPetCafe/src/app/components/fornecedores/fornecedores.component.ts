@@ -32,4 +32,5 @@ export class FornecedorComponent implements OnInit {
       this.router.navigate(['/home']);
     });
   }
+  
 }
