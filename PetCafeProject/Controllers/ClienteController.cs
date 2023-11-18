@@ -53,17 +53,17 @@ namespace PetCafeProject.Controllers
 
         [HttpPut()]
         [Route("alterar")]
-        public async Task<ActionResult> Alterar(string cpf, string nome, string email, int idade)
+        public async Task<ActionResult> Alterar([FromBody]Cliente cliente)
         {
             if (_context is null) return NotFound();
             if (_context.Cliente is null) return NotFound();
 
-            var clienteExistente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == cpf);
+            var clienteExistente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == cliente.cpf);
             if (clienteExistente == null) return NotFound();
 
-            clienteExistente.nome = nome;
-            clienteExistente.email = email;
-            clienteExistente.idade = idade;
+            clienteExistente.nome = cliente.nome;
+            clienteExistente.email = cliente.email;
+            clienteExistente.idade = cliente.idade;
             await _context.SaveChangesAsync();
 
             return Ok();

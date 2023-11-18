@@ -1,49 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="clientes.component.css">
-</head>
-<body class="container">
-
-    <div class="container-xl mx-auto align-content-xl-center justify-content-center justify-content-md-around">
-        <div class="row">
-            <div class="col-6 border border-light rounded p-5 shadow mx-auto" *ngIf="formularioCliente">
-                <h6>{{ tituloFormulario }}</h6>
-                <form [formGroup]="formularioCliente" (ngSubmit)="enviarFormulario()">
-                    <div class="form-group">
-                        <label>Cpf</label>
-                        <input type="text" class="form-control form-control-sm" formControlName="cpf"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Nome</label>
-                        <input type="text" class="form-control form-control-sm" formControlName="nome"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" class="form-control form-control-sm" formControlName="email"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Idade</label>
-                        <input type="text" class="form-control form-control-sm" formControlName="idade"/>
-                    </div>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <button type="submit" class="btn btn-sm btn-outline-secondary">Salvar</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-sm btn-light" onclick="history.back()">Voltar</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+    <link rel="stylesheet" href="clientes.component.css" />
+  </head>
+  <body class="container">
+    <div
+      class="container-xl mx-auto align-content-xl-center justify-content-center justify-content-md-around"
+    >
+      <div class="row">
+        <div
+          class="col-6 border border-light rounded p-5 shadow mx-auto"
+          *ngIf="formularioCliente"
+        >
+          <h1>{{ tituloFormulario }}</h1>
+          <form [formGroup]="formularioCliente" (ngSubmit)="enviarFormulario()">
+            <div class="form-group">
+              <label>CPF:</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="cpf"
+                placeholder="000.000.000-00"
+                maxlength="11"
+              />
             </div>
-        </div>
-    </div>
+            <div class="form-group">
+              <label>Nome:</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="nome"
+              />
+            </div>
+            <div class="form-group">
+              <label>Email:</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="email"
+              />
+            </div>
+            <div class="form-group">
+              <label>Idade:</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="idade"
+              />
+            </div>
 
-</body>
+            <div class="div-buttons">
+              <div>
+                <button
+                  id="btn-salvar"
+                  type="submit"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  Salvar
+                </button>
+              </div>
+              <div>
+                <button
+                  id="btn-voltar"
+                  type="button"
+                  class="btn btn-sm btn-light"
+                  onclick="history.back()"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

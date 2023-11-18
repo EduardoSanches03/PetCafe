@@ -37,8 +37,8 @@ export class ListaFornecedoresComponent implements OnInit {
     );
   }
 
-  removerCliente(cpf: string): void {
-    this.fornecedorServico.excluir(cpf).subscribe(
+  removerFornecedor(cnpj: string): void {
+    this.fornecedorServico.excluir(cnpj).subscribe(
       () => {
         console.log('Fornecedor removido com sucesso!');
         this.obterFornecedores();

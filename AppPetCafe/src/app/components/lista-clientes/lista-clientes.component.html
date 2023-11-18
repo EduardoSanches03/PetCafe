@@ -1,30 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="lista-clientes.component.css">
-</head>
-<body class="container">
-    <nav><button onclick="history.back()">Voltar</button></nav>
-  <h1><strong>Lista de Clientes</strong></h1>
+    <link rel="stylesheet" href="lista-clientes.component.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="container">
+    <nav><button id="btn-voltar" onclick="history.back()">Voltar</button></nav>
+    <h1>Lista de Clientes</h1>
 
-<div class="scrol">
-<div class="tab-content">
-  <table>
-    <tr>
-      <th>Nome</th>
-      <th>email</th>
-      <th>idade</th>
-    </tr>
-    <tr *ngFor="let cliente of clientes">
-      <td>{{ cliente.nome }}</td> 
-      <td>{{ cliente.email }}</td> 
-      <td>{{ cliente.idade }}</td>
-    </tr>
-  </table>
-</div>
-</div>
-</body>
+    <div class="div_content">
+      <div class="tab-content">
+        <table>
+          <tr>
+            <th class="th">CPF:</th>
+            <th class="th1">Nome:</th>
+            <th class="th2">Email:</th>
+            <th class="th3">Idade:</th>
+            <th class="th3">Alterar:</th>
+            <th class="th3">Remover:</th>
+          </tr>
+          <tr *ngFor="let cliente of clientes">
+            <td>{{ formatarCpf(cliente.cpf) }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.email }}</td>
+            <td>{{ cliente.idade }}</td>
+            <td>
+              <i
+                id="btn-update"
+                class="fa-regular fa-pen-to-square fa-2xl"
+                (click)="abrirModalEditCliente(cliente)"
+              ></i>
+            </td>
+            <td>
+              <i
+                id="btn-remove"
+                class="fa-solid fa-trash-can fa-2xl"
+                (click)="removerCliente(cliente.cpf)"
+              ></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>

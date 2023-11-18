@@ -27,7 +27,7 @@ export class ClientesService {
     return this.http.put<Cliente>(url, cliente, httpOptions);
   }
   excluir(cpf: string): Observable<any> {
-    const url = `${this.apiUrl}/buscar/${cpf}`;
+    const url = `${this.apiUrl}/excluir/${cpf}`;
     return this.http.delete<string>(url, httpOptions);
   }
 }
