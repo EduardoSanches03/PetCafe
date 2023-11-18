@@ -28,7 +28,7 @@
             <th class="th3">Remover</th>
           </tr>
           <tr class="tr-cit" *ngFor="let fornecedor of fornecedores">
-            <td>{{ fornecedor.cnpj }}</td>
+            <td>{{ formatarCnpj(fornecedor.cnpj) }}</td>
             <td>{{ fornecedor.nome }}</td>
             <td>
               <i
