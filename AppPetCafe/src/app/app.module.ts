@@ -19,6 +19,7 @@ import { ListaFornecedoresComponent } from './components/lista-fornecedores/list
 import { ListaProdutosComponent } from './components/lista-produtos/lista-produtos.component';
 import { EditfornmodalComponent } from './components/editfornmodal/editfornmodal.component';
 import { EditclienmodalComponent } from './components/editclienmodal/editclienmodal.component';
+import { EditprodumodalComponent } from './components/editprodumodal/editprodumodal.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { EditclienmodalComponent } from './components/editclienmodal/editclienmo
     ListaProdutosComponent,
     EditfornmodalComponent,
     EditclienmodalComponent,
+    EditprodumodalComponent,
   ],
   imports: [
     FormsModule,

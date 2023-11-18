@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="produtos.component.css" />
   </head>
   <body class="container">
-    <div class="container p-5">
+    <div class="container-xl mx-auto align-content-xl-center justify-content-center justify-content-md-around">
       <div class="row">
-        <div class="col-6 border border-light rounded p-5 shadow">
-          <h6>{{ tituloFormulario }}</h6>
+        <div class="col-6 border border-light rounded p-5 shadow mx-auto">
+          <h1>{{ tituloFormulario }}</h1>
           <form
             [formGroup]="formulario_produto"
             *ngIf="formulario_produto"
             (ngSubmit)="enviarFormulario()"
           >
-            <div class="form-group">
-              <label>Fornecedor</label>
+            <div class="form-group" style="margin-top: 30px">
+              <label>Fornecedor:</label>
               <select
                 class="form-control form-control-sm"
                 formControlName="fornecedorCNPJ"
@@ -32,7 +32,7 @@
             </div>
 
             <div class="form-group">
-              <label>Nome</label>
+              <label>Nome:</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
@@ -40,7 +40,7 @@
               />
             </div>
             <div class="form-group">
-              <label>Descrição</label>
+              <label>Descrição:</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
@@ -48,14 +48,35 @@
               />
             </div>
             <div class="form-group">
-              <label>Valor</label>
+              <label>Valor:</label>
               <input
                 type="text"
                 class="form-control form-control-sm"
                 formControlName="valor"
               />
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+
+            <div class="div-buttons">
+              <div>
+                <button
+                  id="btn-salvar"
+                  type="submit"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  Salvar
+                </button>
+              </div>
+              <div>
+                <button
+                  id="btn-voltar"
+                  type="button"
+                  class="btn btn-sm btn-light"
+                  onclick="history.back()"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>

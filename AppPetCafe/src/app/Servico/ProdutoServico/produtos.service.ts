@@ -32,8 +32,8 @@ export class ProdutosService {
     const url = `${this.apiUrl}/alterar`;
     return this.http.put<Produto>(url, produto, httpOptions);
   }
-  excluir(codigo: string): Observable<any> {
-    const url = `${this.apiUrl}/buscar/${codigo}`;
-    return this.http.delete<string>(url, httpOptions);
+  excluir(codigo: number): Observable<any> {
+    const url = `${this.apiUrl}/excluir/${codigo}`;
+    return this.http.delete<number>(url, httpOptions);
   }
 }

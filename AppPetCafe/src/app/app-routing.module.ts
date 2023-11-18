@@ -9,6 +9,7 @@ import { ListaFornecedoresComponent } from './components/lista-fornecedores/list
 import { ListaProdutosComponent } from './components/lista-produtos/lista-produtos.component';
 import { EditfornmodalComponent } from './components/editfornmodal/editfornmodal.component';
 import { EditclienmodalComponent } from './components/editclienmodal/editclienmodal.component';
+import { EditprodumodalComponent } from './components/editprodumodal/editprodumodal.component';
 
 const routes: Routes = [
 {path: 'clientes', component: ClientesComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
 {path: "fornecedor", component: FornecedorComponent},
 {path: "editforn", component: EditfornmodalComponent},
 {path: "editClien", component: EditclienmodalComponent},
+{path: "editProdu", component: EditprodumodalComponent},
 {path: "listaforn", component: ListaFornecedoresComponent},
 {path: "listaprodu", component: ListaProdutosComponent
 

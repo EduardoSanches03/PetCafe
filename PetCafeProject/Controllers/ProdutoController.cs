@@ -35,18 +35,12 @@ public class ProdutoController : ControllerBase
 [Route("Cadastrar")]
 public async Task<ActionResult> Cadastrar(Produto produto)
 {
-    if (_context is null)
-        return NotFound();
+    if (_context is null)return NotFound();
 
-    // Verificar se o fornecedor já existe no banco de dados
     var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.cnpj == produto.FornecedorCNPJ);
+    if (fornecedor == null)return NotFound("Fornecedor não encontrado.");
+    
 
-    if (fornecedor == null)
-    {
-        return NotFound("Fornecedor não encontrado.");
-    }
-
-    // Criar produto e associar ao fornecedor existente
     var novoProduto = new Produto
     {
         FornecedorCNPJ = produto.FornecedorCNPJ,
@@ -55,7 +49,6 @@ public async Task<ActionResult> Cadastrar(Produto produto)
         Valor = produto.Valor
     };
 
-    // Adicionar e salvar no banco de dados
     await _context.AddAsync(novoProduto);
     await _context.SaveChangesAsync(); 
 
@@ -80,23 +73,22 @@ public async Task<ActionResult> Cadastrar(Produto produto)
 
     [HttpPut]
     [Route("alterar")]
-    public async Task<ActionResult> Alterar(int codigo, string cnpj, string nome, string descricao, double valor)
+    public async Task<ActionResult> Alterar([FromBody]Produto produto)
     {
         if (_context is null) return NotFound();
         if (_context.Produto is null) return NotFound();
 
-        var produtoCadastrado = await _context.Produto.FirstOrDefaultAsync(p => p.Codigo == codigo);
+        var produtoCadastrado = await _context.Produto.FirstOrDefaultAsync(p => p.Codigo == produto.Codigo);
         if(produtoCadastrado is null) return NotFound();
 
-        var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.cnpj == cnpj);
+        var fornecedor = await _context.Fornecedor.FirstOrDefaultAsync(f => f.cnpj == produto.FornecedorCNPJ);
         if (fornecedor is null) return NotFound();
 
         produtoCadastrado.Fornecedor = fornecedor;
-        produtoCadastrado.Nome = nome;
-        produtoCadastrado.Descricao = descricao;
-        produtoCadastrado.Valor = valor;
+        produtoCadastrado.Nome = produto.Nome;
+        produtoCadastrado.Descricao = produto.Descricao;
+        produtoCadastrado.Valor = produto.Valor;
 
-        _context.Produto.Update(produtoCadastrado);
         await _context.SaveChangesAsync();
 
         return Ok();
