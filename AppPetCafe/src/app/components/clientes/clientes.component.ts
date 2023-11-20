@@ -21,7 +21,7 @@ export class ClientesComponent implements OnInit {
   nome: new FormControl(null),
   email: new FormControl(null),
   idade: new FormControl(null)
-  })
+  })  
   }
 
   enviarFormulario(): void {

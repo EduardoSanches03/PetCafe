@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro Animal</title>
+    <link rel="stylesheet" href="animais.component.css" />
+  </head>
+  <body class="container">
+    <div
+      class="container-xl mx-auto align-content-xl-center justify-content-center justify-content-md-around"
+    >
+      <div class="row">
+        <div
+          class="col-6 border border-light rounded p-5 shadow mx-auto"
+          *ngIf="formularioAnimal"
+        >
+          <h1>{{ tituloFormulario }}</h1>
+          <form [formGroup]="formularioAnimal" (ngSubmit)="enviarFormulario()">
+            <div class="form-group" style="margin-top: 30px">
+              <label>Nome:</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="nome"
+              />
+            </div>
+            <div class="form-group">
+              <label>Especie:</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="especie"
+              />
+            </div>
+            <div class="form-group">
+              <label>Descrição:</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="descricao"
+              />
+            </div>
+            <div class="div-buttons">
+              <div>
+                <button
+                  id="btn-salvar"
+                  type="submit"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  Salvar
+                </button>
+              </div>
+              <div>
+                <button
+                  id="btn-voltar"
+                  type="button"
+                  class="btn btn-sm btn-light"
+                  onclick="history.back()"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

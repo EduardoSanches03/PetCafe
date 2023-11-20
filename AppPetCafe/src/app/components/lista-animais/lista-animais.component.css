@@ -1,0 +1,61 @@
+.container {
+    background-color: #263545;
+    text-align: center;
+    color: white;
+  }
+  h1 {
+    margin-top: 75px;
+    font-weight: bold;
+  }
+  .tab-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .div_content {
+    overflow: auto;
+    margin-top: 30px;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid;
+    padding: 10px;
+  }
+  
+  table {
+    width: 1000px;
+    overflow: auto;
+  }
+  
+  nav {
+    position: absolute;
+  }
+  #btn-remove {
+    cursor: pointer;
+  }
+  #btn-update {
+    cursor: pointer;
+  }
+  #btn-voltar {
+    background-color: #888888;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 80px;
+    height: 35px;
+  }
+  
+  #btn-voltar:hover {
+    background-color: #ffbf00;
+  }
+  
+  #btn-remove:hover {
+    color: #dc143c;
+  }
+  #btn-update:hover{
+    color: #007fff;
+  }
+  

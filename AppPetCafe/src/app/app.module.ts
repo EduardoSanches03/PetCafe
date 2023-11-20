@@ -20,6 +20,10 @@ import { ListaProdutosComponent } from './components/lista-produtos/lista-produt
 import { EditfornmodalComponent } from './components/editfornmodal/editfornmodal.component';
 import { EditclienmodalComponent } from './components/editclienmodal/editclienmodal.component';
 import { EditprodumodalComponent } from './components/editprodumodal/editprodumodal.component';
+import { AnimaisComponent } from './components/animais/animais.component';
+import { AnimaisService } from './Servico/AnimalServico/animais.service';
+import { ListaAnimaisComponent } from './components/lista-animais/lista-animais.component';
+import { EditanimalmodalComponent } from './components/editanimalmodal/editanimalmodal.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,9 @@ import { EditprodumodalComponent } from './components/editprodumodal/editprodumo
     EditfornmodalComponent,
     EditclienmodalComponent,
     EditprodumodalComponent,
+    AnimaisComponent,
+    ListaAnimaisComponent,
+    EditanimalmodalComponent,
   ],
   imports: [
     FormsModule,
@@ -49,6 +56,7 @@ import { EditprodumodalComponent } from './components/editprodumodal/editprodumo
     ClientesService,
     ProdutosService,
     FornecedoresService,
+    AnimaisService
   ],
   bootstrap: [AppComponent],
 })

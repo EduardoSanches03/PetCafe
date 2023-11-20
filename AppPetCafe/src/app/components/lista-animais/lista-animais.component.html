@@ -1,0 +1,48 @@
+<p>lista-animais works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="lista-animais.component.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="container">
+    <nav><button id="btn-voltar" onclick="history.back()">Voltar</button></nav>
+    <h1>Lista de Animais</h1>
+
+    <div class="div_content">
+      <div class="tab-content">
+        <table>
+          <tr>
+            <th class="th">Codigo:</th>
+            <th class="th1">Nome:</th>
+            <th class="th2">Espécie:</th>
+            <th class="th3">Descrição:</th>
+            <th class="th3">Alterar:</th>
+            <th class="th3">Remover:</th>
+          </tr>
+          <tr *ngFor="let animal of animais">
+            <td>{{ animal.id }}</td>
+            <td>{{ animal.nome }}</td>
+            <td>{{ animal.especie }}</td>
+            <td>{{ animal.descricao }}</td>
+            <td>
+              <i id="btn-update" class="fa-regular fa-pen-to-square fa-2xl" (click)="abrirModalEditAnimal(animal)"></i>
+            </td>
+            <td>
+              <i id="btn-remove" class="fa-solid fa-trash-can fa-2xl" (click)="removerAnimal(animal.id)"></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

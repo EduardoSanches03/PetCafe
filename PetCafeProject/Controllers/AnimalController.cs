@@ -29,18 +29,10 @@ namespace PetCafeProject.Controllers
 
         [HttpPost]
         [Route("cadastrar")]
-        public async Task<ActionResult> Cadastrar(string nome, string especie ,string descricao)
+        public async Task<ActionResult> Cadastrar([FromBody]Animal animal)
         {
             if (_context is null) return NotFound();
             if (_context.Animal is null) return NotFound();
-
-            var animal = new Animal
-            {
-                Nome = nome,
-                Especie = especie,
-                Descricao = descricao
-            };
-
             await _context.AddAsync(animal);
             await _context.SaveChangesAsync();
             return Created("", animal);
@@ -61,17 +53,17 @@ namespace PetCafeProject.Controllers
 
         [HttpPut()]
         [Route("alterar")]
-        public async Task<ActionResult> Alterar(int id, string nome, string especie, string descricao)
+        public async Task<ActionResult> Alterar([FromBody]Animal animal)
         {
             if (_context is null) return NotFound();
             if (_context.Animal is null) return NotFound();
 
-            var animalExistente = await _context.Animal.FirstOrDefaultAsync(a => a.Id == id);
+            var animalExistente = await _context.Animal.FirstOrDefaultAsync(a => a.Id == animal.Id);
             if (animalExistente == null) return NotFound();
 
-            animalExistente.Nome = nome;
-            animalExistente.Especie = especie;
-            animalExistente.Descricao = descricao;
+            animalExistente.Nome = animal.Nome;
+            animalExistente.Especie = animal.Especie;
+            animalExistente.Descricao = animal.Descricao;
 
             await _context.SaveChangesAsync();
             return Ok();
