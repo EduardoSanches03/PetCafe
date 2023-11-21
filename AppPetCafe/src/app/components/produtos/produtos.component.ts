@@ -29,6 +29,7 @@ export class ProdutosComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.tituloFormulario = 'Novo Produto';
+    
     this.fornecedorService.listar().subscribe((fornecedores) => {
       this.fornecedores = fornecedores;
       if (this.fornecedores && this.fornecedores.length > 0) {

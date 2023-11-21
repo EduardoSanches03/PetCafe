@@ -31,6 +31,7 @@ namespace PetCafeProject.Controllers
         [Route("cadastrar")]
         public async Task<ActionResult> Cadastrar(Cliente cliente)
         {
+
             if (_context is null) return NotFound();
             if (_context.Cliente is null) return NotFound();
             await _context.AddAsync(cliente);

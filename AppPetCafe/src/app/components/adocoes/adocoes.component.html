@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="adocoes.component.css" />
+  </head>
+  <body class="container">
+    <div
+      class="container-xl mx-auto align-content-xl-center justify-content-center justify-content-md-around"
+    >
+      <div class="row">
+        <div class="col-6 border border-light rounded p-5 shadow mx-auto">
+          <h1>{{ tituloFormulario }}</h1>
+          <form
+            [formGroup]="formularioAdocao"
+            *ngIf="formularioAdocao"
+            (ngSubmit)="enviarFormulario()"
+          >
+            <div class="form-group" style="margin-top: 30px">
+              <label>Cliente:</label>
+              <select
+                class="form-control form-control-sm"
+                formControlName="clienteCPF"
+              >
+                <option *ngFor="let cliente of clientes" [value]="cliente.cpf">
+                  {{ cliente.nome }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-top: 30px">
+              <label>Animal:</label>
+              <select
+                class="form-control form-control-sm"
+                formControlName="animalID"
+              >
+                <option *ngFor="let animal of animais" [value]="animal.id">
+                  {{ animal.nome }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Data:</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                formControlName="data"
+              />
+            </div>
+            <div class="div-buttons">
+              <div>
+                <button
+                  id="btn-salvar"
+                  type="submit"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  Salvar
+                </button>
+              </div>
+              <div>
+                <button
+                  id="btn-voltar"
+                  type="button"
+                  class="btn btn-sm btn-light"
+                  onclick="history.back()"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

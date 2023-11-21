@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using PetCafeProject.Data;
 using PetCafeProject.Models;
 
-namespace PetCafeProject.Controllers
-{
+namespace PetCafeProject.Controllers;
+
     [ApiController]
-    [Route("Controller")]
+    [Route("[Controller]")]
     public class AdocaoController : ControllerBase
     {
 
@@ -18,8 +18,8 @@ namespace PetCafeProject.Controllers
         }
 
         [HttpGet]
-        [Route("listarAdocoes")]
-        public async Task<ActionResult<IEnumerable<Adocao>>> ListarAdocoes()
+        [Route("listar")]
+        public async Task<ActionResult<IEnumerable<Adocao>>> Listar()
         {
             if (_context is null) return NotFound();
             if (_context.Venda is null) return NotFound();
@@ -33,27 +33,30 @@ namespace PetCafeProject.Controllers
         }
 
         [HttpPost]
-        [Route("registrarAdocao")]
-        public async Task<ActionResult> RegistrarAdocao(string cpf, int animalID, string data)
+        [Route("cadastrar")]
+        public async Task<ActionResult> Cadastrar([FromBody]Adocao adocao)
         {
+
+            Console.WriteLine("tamo aqui");
             if (_context is null) return NotFound();
+     
+            var cliente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == adocao.ClienteCPF);
+            if (cliente == null) return NotFound('x');
 
-            var cliente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == cpf);
-            if (cliente == null) return NotFound();
+            var animal = await _context.Animal.FirstOrDefaultAsync(a => a.Id == adocao.AnimalID);
+            if (animal == null) return NotFound('y');
 
-            var animal = await _context.Animal.FirstOrDefaultAsync(a => a.Id == animalID);
-            if (animal == null) return NotFound();
-
-            var adocao = new Adocao
+            var novaAdocao = new Adocao
             {
-                Cliente = cliente,
-                Animal = animal,
-                Data = data
+                ClienteCPF = adocao.ClienteCPF,
+                AnimalID = adocao.AnimalID,
+                Data = adocao.Data
             };
             
-            await _context.AddAsync(adocao);
+            await _context.AddAsync(novaAdocao);
             await _context.SaveChangesAsync();
-            return Created("", adocao);
+
+            return Created("", novaAdocao);
         }
 
         [HttpDelete]
@@ -95,4 +98,4 @@ namespace PetCafeProject.Controllers
             return Ok(registroAdocao);
         }
     }
-}
+

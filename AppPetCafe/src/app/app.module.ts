@@ -24,6 +24,8 @@ import { AnimaisComponent } from './components/animais/animais.component';
 import { AnimaisService } from './Servico/AnimalServico/animais.service';
 import { ListaAnimaisComponent } from './components/lista-animais/lista-animais.component';
 import { EditanimalmodalComponent } from './components/editanimalmodal/editanimalmodal.component';
+import { AdocoesComponent } from './components/adocoes/adocoes.component';
+import { AdocoesService } from './Servico/AdocaoServico/adocoes.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { EditanimalmodalComponent } from './components/editanimalmodal/editanima
     AnimaisComponent,
     ListaAnimaisComponent,
     EditanimalmodalComponent,
+    AdocoesComponent,
   ],
   imports: [
     FormsModule,
@@ -56,7 +59,8 @@ import { EditanimalmodalComponent } from './components/editanimalmodal/editanima
     ClientesService,
     ProdutosService,
     FornecedoresService,
-    AnimaisService
+    AnimaisService,
+    AdocoesService
   ],
   bootstrap: [AppComponent],
 })
