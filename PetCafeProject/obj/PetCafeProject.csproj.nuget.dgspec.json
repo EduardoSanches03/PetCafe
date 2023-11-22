@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\_src\\PetCafe\\petcafeproject\\PetCafeProject.csproj": {}
+    "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\petcafeproject\\PetCafeProject.csproj": {}
   },
   "projects": {
-    "C:\\_src\\PetCafe\\petcafeproject\\PetCafeProject.csproj": {
+    "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\petcafeproject\\PetCafeProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\_src\\PetCafe\\petcafeproject\\PetCafeProject.csproj",
+        "projectUniqueName": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\petcafeproject\\PetCafeProject.csproj",
         "projectName": "PetCafeProject",
-        "projectPath": "C:\\_src\\PetCafe\\petcafeproject\\PetCafeProject.csproj",
+        "projectPath": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\petcafeproject\\PetCafeProject.csproj",
         "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-        "outputPath": "C:\\_src\\PetCafe\\petcafeproject\\obj\\",
+        "outputPath": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\petcafeproject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

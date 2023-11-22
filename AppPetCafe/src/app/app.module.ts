@@ -26,6 +26,8 @@ import { ListaAnimaisComponent } from './components/lista-animais/lista-animais.
 import { EditanimalmodalComponent } from './components/editanimalmodal/editanimalmodal.component';
 import { AdocoesComponent } from './components/adocoes/adocoes.component';
 import { AdocoesService } from './Servico/AdocaoServico/adocoes.service';
+import { ListaAdocoesComponent } from './components/lista-adocoes/lista-adocoes.component';
+import { EditadocaomodalComponent } from './components/editadocaomodal/editadocaomodal.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { AdocoesService } from './Servico/AdocaoServico/adocoes.service';
     ListaAnimaisComponent,
     EditanimalmodalComponent,
     AdocoesComponent,
+    ListaAdocoesComponent,
+    EditadocaomodalComponent,
   ],
   imports: [
     FormsModule,

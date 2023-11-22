@@ -60,9 +60,9 @@ namespace PetCafeProject.Controllers;
         }
 
         [HttpDelete]
-        [Route("removerRegistroAdocao/{codigo}")]
+        [Route("excluir/{codigo}")]
 
-        public async Task<ActionResult> RemoverRegistroAdocao(int codigo)
+        public async Task<ActionResult> Excluir(int codigo)
         {
             if (_context is null) return NotFound();
             if(_context.Adocao == null) return NotFound();
@@ -75,27 +75,28 @@ namespace PetCafeProject.Controllers;
         }
 
         [HttpPut]
-        [Route("alterarRegistroAdocao/{codigo}")]
-        public async Task<ActionResult> AlterarRegistroAdocao(int codigo, string cpf, int animalId, string data)
+        [Route("alterar")]
+        public async Task<ActionResult> Alterar([FromBody]Adocao adocao)
         {
 
             if (_context is null) return NotFound();
 
-            var registroAdocao = await _context.Adocao.FirstOrDefaultAsync(a => a.Codigo == codigo);
+            var registroAdocao = await _context.Adocao.FirstOrDefaultAsync(a => a.Codigo == adocao.Codigo);
             if (registroAdocao == null) return NotFound();
 
-            var cliente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == cpf);
+            var cliente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == adocao.ClienteCPF);
             if (cliente == null) return NotFound();
 
-            var animal = await _context.Animal.FirstOrDefaultAsync(a => a.Id == animalId);
+            var animal = await _context.Animal.FirstOrDefaultAsync(a => a.Id == adocao.AnimalID);
             if (animal == null) return NotFound();
 
             registroAdocao.Cliente = cliente;
             registroAdocao.Animal = animal;
-            registroAdocao.Data = data;
+            registroAdocao.Data = adocao.Data;
 
             await _context.SaveChangesAsync();
-            return Ok(registroAdocao);
+
+            return Ok();
         }
     }
 

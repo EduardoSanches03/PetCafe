@@ -13,6 +13,8 @@ import { EditprodumodalComponent } from './components/editprodumodal/editprodumo
 import { AnimaisComponent } from './components/animais/animais.component';
 import { ListaAnimaisComponent } from './components/lista-animais/lista-animais.component';
 import { AdocoesComponent } from './components/adocoes/adocoes.component';
+import { ListaAdocoesComponent } from './components/lista-adocoes/lista-adocoes.component';
+import { EditadocaomodalComponent } from './components/editadocaomodal/editadocaomodal.component';
 
 const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'listaprodu', component: ListaProdutosComponent },
   { path: 'animal', component: AnimaisComponent },
   {path: 'adocoes', component: AdocoesComponent},
+  {path: 'listaAdocoes', component: ListaAdocoesComponent},
+  {path: 'editAdocao', component: EditadocaomodalComponent}
 ];
 
 @NgModule({

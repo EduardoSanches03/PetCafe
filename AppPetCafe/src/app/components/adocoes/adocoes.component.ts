@@ -62,4 +62,6 @@ export class AdocoesComponent implements OnInit {
       this.router.navigate(['/home']);
     });
   }
+
+
 }

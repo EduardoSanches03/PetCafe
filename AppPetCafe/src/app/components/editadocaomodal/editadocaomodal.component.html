@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Adoção</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="container">
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Adoção</h4>
+      <button type="button" class="close" (click)="fecharModalAdocao()">
+        &times;
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="codigo">Codigo:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="codigo"
+          [(ngModel)]="adocao.codigo"
+          [attr.readonly]="true"
+        />
+      </div>
+      <div class="form-group">
+        <label for="cliente">Cliente:</label>
+        <select class="form-control" id="cliente" [(ngModel)]="adocao.clienteCPF">
+          <option *ngFor="let cliente of clientes" [value]="cliente.cpf">
+            {{ cliente.nome }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="animal">Animal:</label>
+        <select class="form-control" id="animal" [(ngModel)]="adocao.animalID">
+          <option *ngFor="let animal of animais" [value]="animal.id">
+            {{ animal.nome }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="data">Data:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="data"
+          [(ngModel)]="adocao.data"
+        />
+      </div>
+      
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="salvarEdicaoAdocao()"
+      >
+        Salvar
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="fecharModalAdocao()"
+      >
+        Fechar
+      </button>
+    </div>
+  </body>
+</html>
