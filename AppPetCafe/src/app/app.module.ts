@@ -28,6 +28,8 @@ import { AdocoesComponent } from './components/adocoes/adocoes.component';
 import { AdocoesService } from './Servico/AdocaoServico/adocoes.service';
 import { ListaAdocoesComponent } from './components/lista-adocoes/lista-adocoes.component';
 import { EditadocaomodalComponent } from './components/editadocaomodal/editadocaomodal.component';
+import { VendasComponent } from './components/vendas/vendas.component';
+import { VendasService } from './Servico/VendaServico/vendas.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { EditadocaomodalComponent } from './components/editadocaomodal/editadoca
     AdocoesComponent,
     ListaAdocoesComponent,
     EditadocaomodalComponent,
+    VendasComponent,
   ],
   imports: [
     FormsModule,
@@ -64,7 +67,8 @@ import { EditadocaomodalComponent } from './components/editadocaomodal/editadoca
     ProdutosService,
     FornecedoresService,
     AnimaisService,
-    AdocoesService
+    AdocoesService,
+    VendasService
   ],
   bootstrap: [AppComponent],
 })

@@ -4,10 +4,10 @@ using PetCafeProject.Data;
 using PetCafeProject.Models;
 using System.Runtime.InteropServices;
 
-namespace PetCafeProject.Controllers
-{
+namespace PetCafeProject.Controllers;
+
     [ApiController]
-    [Route("Controller")]
+    [Route("[Controller]")]
     public class VendaController : ControllerBase
     {
         private PetCafeDbContext _context;
@@ -35,28 +35,28 @@ namespace PetCafeProject.Controllers
 
 
         [HttpPost]
-        [Route("realizarVenda")]
-        public async Task<ActionResult> RealizarVenda(string cpf, int produtoId, int quantidade)
+        [Route("cadastrar")]
+        public async Task<ActionResult> Cadastrar([FromBody]Venda venda)
         {
             if (_context is null) return NotFound();
 
-            var cliente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == cpf);
+            var cliente = await _context.Cliente.FirstOrDefaultAsync(c => c.cpf == venda.ClienteCPF);
             if (cliente == null) return NotFound();
 
-            var produto = await _context.Produto.FirstOrDefaultAsync(p => p.Codigo == produtoId);
+            var produto = await _context.Produto.FirstOrDefaultAsync(p => p.Codigo == venda.ProdutoCodigo);
             if (produto == null) return NotFound();
 
-            var venda = new Venda
+            var novaVenda = new Venda
             {
-                Cliente = cliente,
-                Produto = produto,
-                Quantidade = quantidade,
-                ValorVenda = (double)(quantidade * produto.Valor)
+                ClienteCPF = venda.ClienteCPF,
+                ProdutoCodigo = venda.ProdutoCodigo,
+                Quantidade = venda.Quantidade,
+                ValorVenda = venda.ValorVenda
             };
 
-            await _context.AddAsync(venda);
+            await _context.AddAsync(novaVenda);
             await _context.SaveChangesAsync();
-            return Created("", venda);
+            return Created("", novaVenda);
         }
 
         [HttpDelete]
@@ -98,4 +98,3 @@ namespace PetCafeProject.Controllers
             return Ok(vendaExistente);
         }
     }
-}

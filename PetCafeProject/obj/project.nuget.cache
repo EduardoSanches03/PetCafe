@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pzPAnKUfW8AgQnpnP8ZjjWAMxn7EQnv4d+aQf19gX1AyA6rCYA3kArGECdNXw2Y2+IvnlsJTKg1XH4UcP2bDSw==",
+  "dgSpecHash": "IF7eirfotqyzTB/0g9+tt55GUbhZNiSlVTpOfl13L5YANRLFomIZ2tPKl4uqkQk40VvmLt5mJhF7EiU36NffmQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eduardo\\Documents\\GitHub\\PetCafe\\petcafeproject\\PetCafeProject.csproj",
+  "projectFilePath": "C:\\_src\\PetCafe\\petcafeproject\\PetCafeProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eduardo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",

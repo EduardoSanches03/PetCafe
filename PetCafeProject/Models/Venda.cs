@@ -7,11 +7,12 @@ namespace PetCafeProject.Models
         [Key]
         public int Id { get; set; } 
 
-        public Cliente Cliente { get; set; }
-        public int ProdutoCodigo {get; set;}
-        public Produto Produto { get; set; }
-        public int Quantidade { get; set; }
-        public double ValorVenda { get; set; }
+        public string? ClienteCPF {get;set;}
+        public Cliente? Cliente { get; set; }
+        public int? ProdutoCodigo {get; set;}
+        public Produto? Produto { get; set; }
+        public int? Quantidade { get; set; }
+        public double? ValorVenda { get; set; }
 
         public Venda()
         {
@@ -19,6 +20,8 @@ namespace PetCafeProject.Models
 
         public Venda(Cliente cliente, Produto produto, int quantidade, double valorVenda)
         {
+            ClienteCPF = ClienteCPF;
+            ProdutoCodigo = ProdutoCodigo;
             Cliente = cliente;
             Produto = produto;
             Quantidade = quantidade;
