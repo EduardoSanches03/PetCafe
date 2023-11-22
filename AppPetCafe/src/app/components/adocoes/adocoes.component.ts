@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { formatDate } from '@angular/common';
 import { PreloadAllModules, Router } from '@angular/router';
 import { Observer } from 'rxjs';
 import { Animal } from 'src/app/Model/Animal';
@@ -29,7 +30,8 @@ export class AdocoesComponent implements OnInit {
     private adocaoService: AdocoesService,
     private clienteService: ClientesService,
     private animalService: AnimaisService,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) {}
   ngOnInit(): void {
     this.tituloFormulario = 'Nova Adocao';
@@ -47,12 +49,23 @@ export class AdocoesComponent implements OnInit {
         this.formularioAdocao.get('id')?.setValue(this.animais[0].id);
       }
     });
-    this.formularioAdocao = new FormGroup({
-      clienteCPF: new FormControl(null),
-      animalID: new FormControl(null),
-      data: new FormControl(null),
+    this.formularioAdocao = this.fb.group({
+      clienteCPF: [null],
+      animalID: [null],
+      data: [null],
+      hojeCheckbox: [false]
     });
-  }
+  
+  
+  this.formularioAdocao.get('hojeCheckbox').valueChanges.subscribe((value: any) => {
+    if (value) {
+      const dataAtual = formatDate(new Date(), 'dd/MM/yyyy', 'en-US');
+      this.formularioAdocao.get('data').setValue(dataAtual);
+    } else {
+      this.formularioAdocao.get('data').setValue(null);
+    }
+  });
+}
 
   enviarFormulario(): void {
     const adocao: Adocao = this.formularioAdocao.value;

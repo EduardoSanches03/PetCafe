@@ -43,12 +43,22 @@
 
             <div class="form-group">
               <label>Data:</label>
-              <input
-                type="text"
-                class="form-control form-control-sm"
-                formControlName="data"
-              />
+              <div class="div-date-input">
+                <input
+                  type="text"
+                  id="date-input"
+                  formControlName="data"
+                  class="form-control form-control-sm mb-2"
+                />
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <input type="checkbox" formControlName="hojeCheckbox" />
+                    <label class="form-check-label ml-2">Hoje</label>
+                  </div>
+                </div>
+              </div>
             </div>
+
             <div class="div-buttons">
               <div>
                 <button
