@@ -31,7 +31,7 @@
           </tr>
           <tr class="tr-cit" *ngFor="let adocao of adocoes">
             <td>{{ adocao.codigo }}</td>
-            <td>{{ adocao.cliente?.cpf }}</td>
+            <td>{{ formatarCpf(adocao.clienteCPF) }}</td>
             <td>{{ adocao.cliente?.nome }}</td>
             <td>{{ adocao.animal?.nome }}</td>
             <td>{{ adocao.data }}</td>
