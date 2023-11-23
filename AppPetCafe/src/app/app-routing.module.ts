@@ -16,6 +16,7 @@ import { AdocoesComponent } from './components/adocoes/adocoes.component';
 import { ListaAdocoesComponent } from './components/lista-adocoes/lista-adocoes.component';
 import { EditadocaomodalComponent } from './components/editadocaomodal/editadocaomodal.component';
 import { VendasComponent } from './components/vendas/vendas.component';
+import { ListaVendasComponent } from './components/lista-vendas/lista-vendas.component';
 
 const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path: 'adocoes', component: AdocoesComponent},
   {path: 'listaAdocoes', component: ListaAdocoesComponent},
   {path: 'editAdocao', component: EditadocaomodalComponent},
-  {path: 'venda', component: VendasComponent}
+  {path: 'venda', component: VendasComponent},
+  {path: 'listaVenda', component: ListaVendasComponent}
 ];
 
 @NgModule({
